@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Equipment</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ equipment.id }}</td>
+            </tr>
+            <tr>
+                <th>Inventorynr</th>
+                <td>{{ equipment.inventoryNr }}</td>
+            </tr>
+            <tr>
+                <th>Serialnr</th>
+                <td>{{ equipment.serialNr }}</td>
+            </tr>
+            <tr>
+                <th>Verificationdate</th>
+                <td>{% if equipment.verificationDate %}{{ equipment.verificationDate|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Timetoverification</th>
+                <td>{{ equipment.timeToVerification }}</td>
+            </tr>
+            <tr>
+                <th>Verificationresult</th>
+                <td>{{ equipment.verificationResult }}</td>
+            </tr>
+            <tr>
+                <th>Productiondate</th>
+                <td>{% if equipment.productionDate %}{{ equipment.productionDate|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Userid</th>
+                <td>{{ equipment.userId }}</td>
+            </tr>
+            <tr>
+                <th>Engid</th>
+                <td>{{ equipment.engId }}</td>
+            </tr>
+            <tr>
+                <th>Placeid</th>
+                <td>{{ equipment.placeId }}</td>
+            </tr>
+            <tr>
+                <th>Ifused</th>
+                <td>{% if equipment.ifUsed %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('equipment_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('equipment_edit', { 'id': equipment.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

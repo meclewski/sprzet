@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Etypes list</h1>
+ <div class="table-responsive">
+    <table class="table table-striped table-bordered" id="table" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Etype</th>
+                <th>Validityperiod</th>
+                <th>Eprice</th>
+                <th>Producerid</th>
+                <th>Laboratoryid</th>
+                <th>Verificationid</th>
+                <th>Emodelid</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for etype in etypes %}
+            <tr>
+                <td><a href="{{ path('etype_show', { 'id': etype.id }) }}">{{ etype.id }}</a></td>
+                <td>{{ etype.eType }}</td>
+                <td>{{ etype.validityPeriod }}</td>
+                <td>{{ etype.ePrice }}</td>
+                <td>{{ etype.producerId }}</td>
+                <td>{{ etype.laboratoryId }}</td>
+                <td>{{ etype.verificationId }}</td>
+                <td>{{ etype.emodelId }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('etype_show', { 'id': etype.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('etype_edit', { 'id': etype.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+    <ul>
+        <li>
+            <a href="{{ path('etype_new') }}">Create a new etype</a>
+        </li>
+    </ul>
+
+    
+{% endblock %}

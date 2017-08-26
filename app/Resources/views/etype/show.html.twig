@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Etype</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ etype.id }}</td>
+            </tr>
+            <tr>
+                <th>Etype</th>
+                <td>{{ etype.eType }}</td>
+            </tr>
+            <tr>
+                <th>Validityperiod</th>
+                <td>{{ etype.validityPeriod }}</td>
+            </tr>
+            <tr>
+                <th>Eprice</th>
+                <td>{{ etype.ePrice }}</td>
+            </tr>
+            <tr>
+                <th>Producerid</th>
+                <td>{{ etype.producerId }}</td>
+            </tr>
+            <tr>
+                <th>Laboratoryid</th>
+                <td>{{ etype.laboratoryId }}</td>
+            </tr>
+            <tr>
+                <th>Verificationid</th>
+                <td>{{ etype.verificationId }}</td>
+            </tr>
+            <tr>
+                <th>Emodelid</th>
+                <td>{{ etype.emodelId }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('etype_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('etype_edit', { 'id': etype.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

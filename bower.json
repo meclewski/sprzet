@@ -1,0 +1,28 @@
+{
+  "name": "sprzet",
+  "homepage": "https://github.com/meclewski/sprzet",
+  "authors": [
+    "meclewski <l.meclewski@gmail.com>"
+  ],
+  "description": "",
+  "main": ".bowerrc",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "web/bower_components/"
+  ],
+  "dependencies": {
+    "font-awesome": "fontawesome#^4.7.0",
+    "Ionicons": "ionicons#^2.0.1",
+    "jvectormap": "^2.0.4",
+    "AdminLTE": "adminlte#^2.3.11",
+    "bootstrap": "^3.3.7",
+    "iCheck": "icheck#^1.0.2",
+    "jquery": "^3.2.1",
+    "animate.css": "^3.5.2"
+  }
+}
