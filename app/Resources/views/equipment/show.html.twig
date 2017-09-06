@@ -23,7 +23,7 @@
             </tr>
             <tr>
                 <th>Timetoverification</th>
-                <td>{{ equipment.timeToVerification }}</td>
+                <td>{% if equipment.timeToVerification %}{{ equipment.timeToVerification|date('Y-m-d') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Verificationresult</th>
@@ -43,7 +43,7 @@
             </tr>
             <tr>
                 <th>Placeid</th>
-                <td>{{ equipment.placeId }}</td>
+                <td>{{ equipment.place }}</td>
             </tr>
             <tr>
                 <th>Ifused</th>

@@ -13,7 +13,7 @@ class EquipmentType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('inventoryNr')->add('serialNr')->add('verificationDate')->add('timeToVerification')->add('verificationResult')->add('productionDate')->add('userId')->add('engId')->add('placeId')->add('ifUsed')->add('etype');
+        $builder->add('inventoryNr')->add('serialNr')->add('verificationDate')->add('timeToVerification')->add('verificationResult')->add('productionDate')->add('userId')->add('engId')->add('place')->add('ifUsed')->add('etype');
     }
     
     /**

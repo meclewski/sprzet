@@ -6,14 +6,14 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class EtypeType extends AbstractType
+class ProducerType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('eType')->add('emodel')->add('producer')->add('validityPeriod')->add('ePrice')->add('laboratory')->add('verification');
+        $builder->add('pName')->add('pDesc');
     }
     
     /**
@@ -22,7 +22,7 @@ class EtypeType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Etype'
+            'data_class' => 'AppBundle\Entity\Producer'
         ));
     }
 
@@ -31,7 +31,7 @@ class EtypeType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_etype';
+        return 'appbundle_producer';
     }
 
 

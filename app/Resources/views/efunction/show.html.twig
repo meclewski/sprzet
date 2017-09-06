@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Efunction</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ efunction.id }}</td>
+            </tr>
+            <tr>
+                <th>Funktion</th>
+                <td>{{ efunction.funktion }}</td>
+            </tr>
+            <tr>
+                <th>Fdesc</th>
+                <td>{{ efunction.fDesc }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('efunction_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('efunction_edit', { 'id': efunction.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

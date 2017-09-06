@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Laboratories list</h1>
+
+    <table class="table table-striped table-bordered" id="table" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Lname</th>
+                <th>Accreditation</th>
+                <th>Ldesc</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for laboratory in laboratories %}
+            <tr>
+                <td><a href="{{ path('laboratory_show', { 'id': laboratory.id }) }}">{{ laboratory.id }}</a></td>
+                <td>{{ laboratory.lName }}</td>
+                <td>{% if laboratory.accreditation %}Yes{% else %}No{% endif %}</td>
+                <td>{{ laboratory.lDesc }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('laboratory_show', { 'id': laboratory.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('laboratory_edit', { 'id': laboratory.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('laboratory_new') }}">Create a new laboratory</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -81,18 +81,13 @@ class Equipment
     private $engId;
 
     /**
-     * Many Equipments have One Place.
+     * Many Equipments have One User.
      * @ORM\ManyToOne(targetEntity="Place", inversedBy="equipments")
-     * @ORM\JoinColumn(name="place_id",nullable=false,  referencedColumnName="id")
+     * @ORM\JoinColumn(name="place_id", nullable=false, referencedColumnName="id")
      */
     private $place;
 
-    /**
-     * Many Equipments have One Etype.
-     * @ORM\ManyToOne(targetEntity="Etype", inversedBy="equipments")
-     * @ORM\JoinColumn(name="etype_id", nullable=false, referencedColumnName="id")
-     */
-    private $etype;
+
     
 
     /**
@@ -361,7 +356,12 @@ class Equipment
         return $this->ifUsed;
     }
 
-     
+     /**
+     * Many Equipments have One Etype.
+     * @ORM\ManyToOne(targetEntity="Etype", inversedBy="equipments")
+     * @ORM\JoinColumn(name="etype_id", nullable=false, referencedColumnName="id")
+     */
+    private $etype;
 
     /**
      * Set etype
@@ -394,7 +394,7 @@ class Equipment
      *
      * @return Equipment
      */
-    public function setPlace(\AppBundle\Entity\Place $place = null)
+    public function setPlace(\AppBundle\Entity\Place $place)
     {
         $this->place = $place;
 

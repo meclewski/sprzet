@@ -24,18 +24,6 @@
                <link rel="stylesheet" href="{{ asset('bower_components/AdminLTE/dist/css/AdminLTE.min.css') }}" />   
                <link rel="stylesheet" href="{{ asset('bower_components/AdminLTE/dist/css/skins/_all-skins.min.css') }}" /> 
                 
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-        
        
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -62,6 +50,7 @@
       </a>
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
+         <div class="container-fluid">
         <ul class="nav navbar-nav navbar-right">
                {% if is_granted("ROLE_ADMIN") %}
               <li><a href="{{ path('fos_user_registration_register') }}">Rejestruj</a></li>
@@ -75,7 +64,7 @@
               
             </ul>
       </div>
-
+      </div>
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
@@ -87,19 +76,41 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-       
+        {% if is_granted("ROLE_USER") %}
+        <!-- Tabele -->
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>Tabele</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ path('equipment_index') }}"><i class="fa fa-circle-o"></i> Tabela sprzętu</a></li>
+            <li><a href="{{ path('etype_index') }}"><i class="fa fa-circle-o"></i> Tabela modeli</a></li>
+            <li><a href="{{ path('producer_index') }}"><i class="fa fa-circle-o"></i> Tabela producentów</a></li>
+            <li><a href="{{ path('laboratory_index') }}"><i class="fa fa-circle-o"></i> Tabela laboratoriów</a></li>
+            <li><a href="{{ path('verification_index') }}"><i class="fa fa-circle-o"></i> Tabela weryfikacji</a></li>
+            <li><a href="{{ path('efunction_index') }}"><i class="fa fa-circle-o"></i> Tabela typów</a></li>
+          </ul>
+        </li>
+        {% else %}
+        {% endif %}
       </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
 {% endblock %}
   <!-- Content Wrapper. Contains page content -->
+  
  <div class="content-wrapper">
   <section class="content">
+  <div class="container-fluid">
       {% block body %}{% endblock %}
+      </div>
   </section>    
  </div>
-
+ 
   
 
 </div>
@@ -113,10 +124,28 @@
 
 
 <script type="text/javascript">
+  $(document).ready(function() {
             $('#table').DataTable( {
-            responsive: true
-            } );
-</script>             
+            "scrollX": true,
+            "language": {
+            "lengthMenu": "Wyświetl _MENU_ rekordów na stronę",
+            "zeroRecords": "Przepraszamy nic nie znaleziono",
+            "info": "Strona _PAGE_ z _PAGES_",
+            "infoEmpty": "Brak psujących rekordów",
+            "infoFiltered": "(Odfiltrowane z _MAX_ rekordów)",
+            "search":         "Wyszukaj:",
+            "paginate": {
+                "first":      "Pierwsza",
+                "last":       "ostatnia",
+                "next":       "Natępna",
+                "previous":   "Poprzednia"
+                   },
+        }
+    } );
+    } );
+  
+</script> 
+                
 {% endblock %}
 
 </body>

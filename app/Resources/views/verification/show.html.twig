@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Verification</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ verification.id }}</td>
+            </tr>
+            <tr>
+                <th>Vkind</th>
+                <td>{{ verification.vKind }}</td>
+            </tr>
+            <tr>
+                <th>Vdesc</th>
+                <td>{{ verification.vDesc }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('verification_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('verification_edit', { 'id': verification.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

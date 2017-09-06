@@ -2,8 +2,8 @@
 
 {% block body %}
     <h1>Etypes list</h1>
- <div class="table-responsive">
-    <table class="table table-striped table-bordered" id="table" width="100%" cellspacing="0">
+ 
+    <table class="table table-striped table-bordered " id="table" width="100%" cellspacing="0">
         <thead>
             <tr>
                 <th>Id</th>
@@ -14,7 +14,7 @@
                 <th>Laboratoryid</th>
                 <th>Verificationid</th>
                 <th>Emodelid</th>
-                <th>Actions</th>
+                <th class="hidden-xs">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -24,25 +24,21 @@
                 <td>{{ etype.eType }}</td>
                 <td>{{ etype.validityPeriod }}</td>
                 <td>{{ etype.ePrice }}</td>
-                <td>{{ etype.producerId }}</td>
-                <td>{{ etype.laboratoryId }}</td>
-                <td>{{ etype.verificationId }}</td>
-                <td>{{ etype.emodelId }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('etype_show', { 'id': etype.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('etype_edit', { 'id': etype.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                <td>{{ etype.producer }}</td>
+                <td>{{ etype.laboratory }}</td>
+                <td>{{ etype.verification }}</td>
+                <td>{{ etype.emodel }}</td>
+                <td class="hidden-xs">
+                    <div class="btn-group">
+                            <a href="{{ path('etype_edit', { 'id': etype.id }) }}" class="btn-sm btn-primary" role="button">edit</a>
+                            <a href="{{ path('etype_edit', { 'id': etype.id }) }}" class="btn-sm btn-primary" role="button">edit</a>
+                    </div>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-</div>
+
 
     <ul>
         <li>
