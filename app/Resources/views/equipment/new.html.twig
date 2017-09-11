@@ -3,8 +3,99 @@
 {% block body %}
     <h1>Equipment creation</h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
+   {{ form_start(form) }}
+    {{ form_errors(form) }}
+ <div class="row">
+ <div class="container-fluid col-sm-8">
+    <div class="row">
+        <div class="col-sm-12">
+            {{ form_label(form.etype, 'Typ przyrządu') }}
+            {{ form_errors(form.etype) }}
+            {{ form_widget(form.etype) }}
+        </div>
+    </div>    
+    <div class="row">
+        <div class="col-sm-6">
+            {{ form_label(form.serialNr, 'Nr fabryczny') }}
+            {{ form_errors(form.serialNr) }}
+            {{ form_widget(form.serialNr) }}   
+        </div>
+
+        <div class="col-sm-6">
+            {{ form_label(form.productionDate, 'Data produkcji') }}
+            {{ form_errors(form.productionDate) }}
+            {{ form_widget(form.productionDate) }} 
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            {{ form_label(form.inventoryNr, 'Nr inwentarzowy') }}
+            {{ form_errors(form.inventoryNr) }}
+            {{ form_widget(form.inventoryNr) }} 
+        </div>
+        <div class="col-sm-6">
+            {{ form_label(form.ifUsed, 'Czy używany') }}
+            {{ form_errors(form.ifUsed) }}
+            {{ form_widget(form.ifUsed) }} 
+        </div>
+    </div> 
+
+    <hr class="featurette-divider">
+    
+    <div class="row">   
+        <div class="col-sm-6">
+            {{ form_label(form.place, 'Miejsce użytkowania') }}
+            {{ form_errors(form.place) }}
+            {{ form_widget(form.place) }} 
+        </div>
+
+         <div class="col-sm-6">
+            {{ form_label(form.userId, 'Osoba odpowiedzialna') }}
+            {{ form_errors(form.userId) }}
+            {{ form_widget(form.userId) }} 
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row">   
+        <div class="col-sm-6">
+            {{ form_label(form.verificationDate, 'Data weryfikacji') }}
+            {{ form_errors(form.verificationDate) }}
+            {{ form_widget(form.verificationDate) }} 
+        </div>
+
+        <div class="col-sm-6">
+            {{ form_label(form.timeToVerification, 'Data następnej weryfikacji') }}
+            {{ form_errors(form.timeToVerification) }}
+            {{ form_widget(form.timeToVerification) }} 
+        </div>
+    </div>
+
+    <div class="row">   
+        <div class="col-sm-6">
+        {{ form_label(form.engId, 'Nazwisko weryfikującego') }}
+        {{ form_errors(form.engId) }}
+        {{ form_widget(form.engId) }} 
+    </div>
+    </div>
+    <div class="row">   
+        <div class="col-sm-12">
+        {{ form_label(form.verificationResult, 'Wynik weryfikacji') }}
+        {{ form_errors(form.verificationResult) }}
+        {{ form_widget(form.verificationResult) }} 
+    </div>
+    </div>
+    <hr class="featurette-divider">
+ </div> <!-- container-->   
+
+ <div class="container col-sm-4 hidden-sm-down">
+ <p>dupa</p>
+   </div> 
+</div> <!-- "big" row-->
+
+
         <input type="submit" value="Create" />
     {{ form_end(form) }}
 

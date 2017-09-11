@@ -37,12 +37,45 @@
     </table>
   
     {% if is_granted("ROLE_ADMIN") %}
-    <ul>
-        <li>
-            <a href="{{ path('equipment_new') }}">Create a new equipment</a>
-        </li>
-    </ul>
+   <footer>
+            <a href="{{ path('etype_new') }}" class="btn btn-primary" role="button">STWÓRZ NOWE</a>
+    </footer>
     {% endif %}     
 
       
+{% endblock %}
+{% block javascripts %}
+      <script src="{{ asset('js/jquery.min.js') }}"></script>
+      <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+      <script src="{{ asset('js/adminlte.min.js') }}"></script> 
+      <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+      <script src="{{ asset('js/dataTables.bootstrap.min.js') }}"></script>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+          var t =  $('#table').DataTable( {
+            "scrollX": true,
+            "language": {
+            "lengthMenu": "Wyświetl _MENU_ rekordów na stronę",
+            "zeroRecords": "Przepraszamy nic nie znaleziono",
+            "info": "Strona _PAGE_ z _PAGES_",
+            "infoEmpty": "Brak psujących rekordów",
+            "infoFiltered": "(Odfiltrowane z _MAX_ rekordów)",
+            "search":         "Wyszukaj:",
+            "paginate": {
+                "first":      "Pierwsza",
+                "last":       "ostatnia",
+                "next":       "Natępna",
+                "previous":   "Poprzednia"
+                   },
+        }
+    } );
+
+
+
+} );
+  
+</script> 
+                
 {% endblock %}

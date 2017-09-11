@@ -1,21 +1,142 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Equipment edit</h1>
-
+<div class="page-header">
+	<div class="row">
+  		<div class="col-sm-10">
+  			<h1>Karta ewidencyjna przyrządu pomiarowego</h1>
+  		</div>
+  		
+  		<div class="col-sm-2 ">
+  			<div class="pull-right">
+  				<h3 >Nr kalibracji: {{equipment.id}}</h3>
+  			</div>
+  		</div>
+	</div>
+</div>	
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+    {{ form_errors(edit_form) }}
+ <div class="row">
+ <div class="container-fluid col-sm-8">
+ 	<div class="row">
+	 	<div class="col-sm-12">
+	        {{ form_label(edit_form.etype, 'Typ przyrządu') }}
+	        {{ form_errors(edit_form.etype) }}
+	        {{ form_widget(edit_form.etype) }}
+	    </div>
+	</div>    
+    <div class="row">
+	    <div class="col-sm-6">
+	        {{ form_label(edit_form.serialNr, 'Nr fabryczny') }}
+	        {{ form_errors(edit_form.serialNr) }}
+	        {{ form_widget(edit_form.serialNr) }}   
+	    </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('equipment_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+	    <div class="col-sm-6">
+	    	{{ form_label(edit_form.productionDate, 'Data produkcji') }}
+	        {{ form_errors(edit_form.productionDate) }}
+	        {{ form_widget(edit_form.productionDate) }} 
+	    </div>
+	</div>
+
+	<div class="row">
+	    <div class="col-sm-6">
+	    	{{ form_label(edit_form.inventoryNr, 'Nr inwentarzowy') }}
+	        {{ form_errors(edit_form.inventoryNr) }}
+	        {{ form_widget(edit_form.inventoryNr) }} 
+    	</div>
+    	<div class="col-sm-6">
+	    	{{ form_label(edit_form.ifUsed, 'Czy używany') }}
+	        {{ form_errors(edit_form.ifUsed) }}
+	        {{ form_widget(edit_form.ifUsed) }} 
+    	</div>
+	</div>   
+
+	<hr class="featurette-divider">
+	
+	<div class="row">	
+	    <div class="col-sm-6">
+	    	{{ form_label(edit_form.place, 'Miejsce użytkowania') }}
+	        {{ form_errors(edit_form.place) }}
+	        {{ form_widget(edit_form.place) }} 
+	    </div>
+
+	     <div class="col-sm-6">
+		    {{ form_label(edit_form.userId, 'Osoba odpowiedzialna') }}
+		    {{ form_errors(edit_form.userId) }}
+		    {{ form_widget(edit_form.userId) }} 
+	    </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row">	
+	    <div class="col-sm-6">
+	    	{{ form_label(edit_form.verificationDate, 'Data weryfikacji') }}
+	        {{ form_errors(edit_form.verificationDate) }}
+	        {{ form_widget(edit_form.verificationDate) }} 
+    	</div>
+
+	    <div class="col-sm-6">
+	    	{{ form_label(edit_form.timeToVerification, 'Data następnej weryfikacji') }}
+	        {{ form_errors(edit_form.timeToVerification) }}
+	        {{ form_widget(edit_form.timeToVerification) }} 
+	    </div>
+    </div>
+
+    <div class="row">	
+	    <div class="col-sm-6">
+    	{{ form_label(edit_form.engId, 'Nazwisko weryfikującego') }}
+        {{ form_errors(edit_form.engId) }}
+        {{ form_widget(edit_form.engId) }} 
+    </div>
+    </div>
+    <div class="row">	
+	    <div class="col-sm-12">
+    	{{ form_label(edit_form.verificationResult, 'Wynik weryfikacji') }}
+        {{ form_errors(edit_form.verificationResult) }}
+        {{ form_widget(edit_form.verificationResult) }} 
+    </div>
+    </div>
+    <hr class="featurette-divider">
+ </div> <!-- container-->   
+
+ <div class="container col-sm-4 hidden-sm-down">
+ <p>dupa</p>
+   </div> 
+</div> <!-- "big" row-->
+    
+
+
+       
+   <div class="row">
+  		<div class="col-sm-4">
+  			<div>
+    		<input type="submit" value="Edytuj" />
+{{ form_end(edit_form) }}
+   			</div>
+  			
+  		</div>
+  		<div class="col-sm-4">
+  		{{ form_start(delete_form) }}
+  			<div class="pull-right">
+                <input type="submit" value="Kasuj">
+            </div>    
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+  		</div>
+
+  		<div class="col-sm-4 ">
+  			<div class="pull-right">
+  				<a href="{{ path('equipment_index') }}">Powrót do listy</a>
+  			</div>
+  		</div>
+	</div>
+
+			         
+    
+            
+        
+            
+    
+   
 {% endblock %}

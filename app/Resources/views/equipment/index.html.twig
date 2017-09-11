@@ -5,10 +5,10 @@
     <h1>Lista sprzętu</h1>
     </div>
 
-    <table class="table table-striped table-bordered" id="table" width="100%" cellspacing="0">
+    <table class="table table-hover table-bordered" id="table" width="100%" cellspacing="0">
         <thead>
             <tr>
-                <th>Id</th>
+                <th style="display:none;">Id</th>
                 <th>Nr inwent.</th>
                 <th>Nr seryjny</th>
                 <th>Data weryfikacji</th>
@@ -19,38 +19,88 @@
                 <th>Wprowadzający</th>
                 <th>Miejsce użytk.</th>
                 <th>Czy używany</th>
-                <th class="hidden-xs">___Akcje___</th>
+                
             </tr>
         </thead>
         <tbody>
         {% for equipment in equipment %}
             <tr>
-                <td><a href="{{ path('equipment_show', { 'id': equipment.id }) }}">{{ equipment.id }}</a></td>
+                <td style="display:none;">{{ equipment.id }}</td>
                 <td>{{ equipment.inventoryNr }}</td>
                 <td>{{ equipment.serialNr }}</td>
                 <td>{% if equipment.verificationDate %}{{ equipment.verificationDate|date('Y-m-d') }}{% endif %}</td>
                 <td>{% if equipment.timeToVerification %}{{ equipment.timeToVerification|date('Y-m-d') }}{% endif %}</td></td>
-                <td>{% if equipment.verificationResult %}{{equipment.verificationResult|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ equipment.verificationResult }}</td>
                 <td>{% if equipment.productionDate %}{{ equipment.productionDate|date('Y-m-d') }}{% endif %}</td>
                 <td>{{ equipment.userId }}</td>
                 <td>{{ equipment.engId }}</td>
                 <td>{{ equipment.place }}</td>
                 <td>{% if equipment.ifUsed %}Yes{% else %}No{% endif %}</td>
-                <td class="hidden-xs ">
-                    <div class="btn-group">
-                            <a href="{{ path('equipment_show', { 'id': equipment.id }) }}" class="btn btn-sm btn-primary" role="button">show</a>
-                        
-                            <a href="{{ path('equipment_edit', { 'id': equipment.id }) }}" class="btn btn-sm btn-primary" role="button">edit</a>
-                     </div> 
-                </td>
+                
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('equipment_new') }}">Create a new equipment</a>
-        </li>
-    </ul>
+   <footer>
+            <a href="{{ path('equipment_new') }}" class="btn btn-primary" role="button">STWÓRZ NOWE</a>
+    </footer>
+
+
+
+{% endblock %}
+{% block javascripts %}
+      <script src="{{ asset('js/jquery.min.js') }}"></script>
+      <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+      <script src="{{ asset('js/adminlte.min.js') }}"></script> 
+      <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+      <script src="{{ asset('js/dataTables.bootstrap.min.js') }}"></script>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+          var t =  $('#table').DataTable( {
+            "scrollX": true,
+            "language": {
+            "lengthMenu": "Wyświetl _MENU_ rekordów na stronę",
+            "zeroRecords": "Przepraszamy nic nie znaleziono",
+            "info": "Strona _PAGE_ z _PAGES_",
+            "infoEmpty": "Brak psujących rekordów",
+            "infoFiltered": "(Odfiltrowane z _MAX_ rekordów)",
+            "search":         "Wyszukaj:",
+            "paginate": {
+                "first":      "Pierwsza",
+                "last":       "ostatnia",
+                "next":       "Natępna",
+                "previous":   "Poprzednia"
+                   },
+        }
+    } );
+
+    $('#table tbody').on('dblclick', 'tr', function () {
+        var data = t.row( this ).data();
+        var pathToRedirect = '{{ path('equipment_edit', {'id': 'ABCDEF'} ) }}'
+        var correctId = data[0];
+        var finalPath = pathToRedirect.replace("ABCDEF", correctId);
+        window.location = finalPath;
+     
+
+
+    } );
+    $('#table tbody').on('contextmenu', 'tr', function (e) {
+        e.preventDefault();
+        var data = t.row( this ).data();
+        var pathToRedirect = '{{ path('equipment_show', {'id': 'ABCDEF'} ) }}'
+        var correctId = data[0];
+        var finalPath = pathToRedirect.replace("ABCDEF", correctId);
+        window.location = finalPath;
+     
+      
+
+    } );
+
+} );
+  
+</script> 
+                
 {% endblock %}
