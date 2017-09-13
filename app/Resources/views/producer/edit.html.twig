@@ -13,7 +13,7 @@
             <a href="{{ path('producer_index') }}">Back to the list</a>
         </li>
         <li>
-            {{ form_start(delete_form) }}
+            {{ form_start(delete_form, {'attr': {'onclick': 'return confirm("Na pewno chcesz usunąć wpis?")'}}) }}
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>

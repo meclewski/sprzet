@@ -1,56 +1,64 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Etype</h1>
+    <div class="page-header">
+        <h1>Szczegóły</h1>
+    </div>
 
-    <table>
+    <table class="table table-hover table-bordered" id="table" width="100%" cellspacing="0">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ etype.id }}</td>
+                <th>Nazwa przyrządu</th>
+                <td>{{ etype.emodel }}</td>
             </tr>
             <tr>
-                <th>Etype</th>
-                <td>{{ etype.eType }}</td>
-            </tr>
-            <tr>
-                <th>Validityperiod</th>
-                <td>{{ etype.validityPeriod }}</td>
-            </tr>
-            <tr>
-                <th>Eprice</th>
-                <td>{{ etype.ePrice }}</td>
-            </tr>
-            <tr>
-                <th>Producerid</th>
+                <th>Producent</th>
                 <td>{{ etype.producer }}</td>
             </tr>
             <tr>
-                <th>Laboratoryid</th>
-                <td>{{ etype.laboratory }}</td>
+                <th>Typ</th>
+                <td>{{ etype.eType }}</td>
             </tr>
             <tr>
-                <th>Verificationid</th>
+                <th>Cena</th>
+                <td>{{ etype.ePrice }}</td>
+            </tr>
+            <tr>
+                <th>Rodzaj weryfikacji</th>
                 <td>{{ etype.verification }}</td>
             </tr>
             <tr>
-                <th>Emodelid</th>
-                <td>{{ etype.emodel }}</td>
+                <th>Czasokres</th>
+                <td>{{ etype.validityPeriod }}</td>
             </tr>
+            
+            
+            <tr>
+                <th>Laboratorium</th>
+                <td>{{ etype.laboratory }}</td>
+            </tr>
+            
+            
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('etype_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('etype_edit', { 'id': etype.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    
+
+    <div class="container">     
+    <div class="row">
+        <div class="col-xs-4 text-left">
+            <a href="{{ path('etype_edit', { 'id': etype.id }) }} " class="btn btn-primary">Edytuj</a>
+            
+        </div>
+
+        <div class="col-xs-4">
+        
+         
+        </div>
+
+        <div class="col-xs-4">
+                <a href="{{ path('etype_index') }} " class="btn btn-success">Powrót do listy</a>
+        </div>
+    </div>
+
 {% endblock %}

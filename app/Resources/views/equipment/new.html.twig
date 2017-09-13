@@ -90,18 +90,33 @@
     <hr class="featurette-divider">
  </div> <!-- container-->   
 
- <div class="container col-sm-4 hidden-sm-down">
- <p>dupa</p>
+ <div class="container col-sm-4 hidden-xs">
+ <p>photo</p>s
    </div> 
 </div> <!-- "big" row-->
 
+<div class="container">     
+    <div class="row">
+        <div class="col-xs-4 text-left">
+        
+            <input class="btn btn-primary" type="submit" value="Create" />
+            {{ form_end(form) }}
+            
+        </div>
 
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+        <div class="col-xs-4">
+        
+         
+        </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('equipment_index') }}">Back to the list</a>
-        </li>
-    </ul>
+        <div class="col-xs-4">
+                <a href="{{ path('equipment_index') }} " class="btn btn-success">Powrót do listy</a>
+        </div>
+    </div>
+
+</div>  
+
+
+
+ 
 {% endblock %}

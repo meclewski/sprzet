@@ -2,13 +2,13 @@
 
 {% block body %}
     <div class="page-header">
-    <h1>Lista sprzętu</h1>
+    <h1>Lista sprzętu pomiarowego</h1>
     </div>
-
+    
     <table class="table table-hover table-bordered" id="table" width="100%" cellspacing="0">
         <thead>
             <tr>
-                <th style="display:none;">Id</th>
+                <th>Nr kalibracji</th>
                 <th>Nr inwent.</th>
                 <th>Nr seryjny</th>
                 <th>Data weryfikacji</th>
@@ -25,7 +25,7 @@
         <tbody>
         {% for equipment in equipment %}
             <tr>
-                <td style="display:none;">{{ equipment.id }}</td>
+                <td>{{ equipment.id }}</td>
                 <td>{{ equipment.inventoryNr }}</td>
                 <td>{{ equipment.serialNr }}</td>
                 <td>{% if equipment.verificationDate %}{{ equipment.verificationDate|date('Y-m-d') }}{% endif %}</td>
@@ -41,7 +41,8 @@
         {% endfor %}
         </tbody>
     </table>
-
+   
+    <hr class="featurette-divider">
    <footer>
             <a href="{{ path('equipment_new') }}" class="btn btn-primary" role="button">STWÓRZ NOWE</a>
     </footer>
@@ -61,6 +62,7 @@
   $(document).ready(function() {
           var t =  $('#table').DataTable( {
             "scrollX": true,
+            "order": [[ 0, "desc" ]],
             "language": {
             "lengthMenu": "Wyświetl _MENU_ rekordów na stronę",
             "zeroRecords": "Przepraszamy nic nie znaleziono",
@@ -68,6 +70,7 @@
             "infoEmpty": "Brak psujących rekordów",
             "infoFiltered": "(Odfiltrowane z _MAX_ rekordów)",
             "search":         "Wyszukaj:",
+            
             "paginate": {
                 "first":      "Pierwsza",
                 "last":       "ostatnia",

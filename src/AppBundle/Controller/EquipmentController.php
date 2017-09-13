@@ -27,6 +27,7 @@ class EquipmentController extends Controller
 
         $equipment = $em->getRepository('AppBundle:Equipment')->findAll();
 
+
         return $this->render('equipment/index.html.twig', array(
             'equipment' => $equipment,
         ));
@@ -67,9 +68,10 @@ class EquipmentController extends Controller
     public function showAction(Equipment $equipment)
     {
         $deleteForm = $this->createDeleteForm($equipment);
-
+        $etypeVal = $equipment->getEtype();
         return $this->render('equipment/show.html.twig', array(
             'equipment' => $equipment,
+            'etypeVal' => $etypeVal,
             'delete_form' => $deleteForm->createView(),
         ));
     }

@@ -1,21 +1,110 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Etype edit</h1>
+    <div class="page-header">
+    <div class="row">
+        <div class="col-sm-10">
+            <h1>Program weryfikacji wyposażenia pomiarowego</h1>
+        </div>
+    </div>
+</div>
 
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+    {{ form_errors(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('etype_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+
+<div class="row">
+ <div class="container-fluid col-sm-8">
+    <div class="row">
+        <div class="col-sm-4">
+            {{ form_label(edit_form.emodel, 'Nazwa przyrządu') }}
+        </div>
+         <div class="col-sm-8">
+            {{ form_errors(edit_form.emodel) }}
+            {{ form_widget(edit_form.emodel) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            {{ form_label(edit_form.producer, 'Producent przyrządu') }}
+        </div>
+         <div class="col-sm-8">
+            {{ form_errors(edit_form.producer) }}
+            {{ form_widget(edit_form.producer) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            {{ form_label(edit_form.eType, 'Typ') }}
+        </div>
+         <div class="col-sm-8">
+            {{ form_errors(edit_form.eType) }}
+            {{ form_widget(edit_form.eType) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            {{ form_label(edit_form.ePrice, 'Cena') }}
+        </div>
+         <div class="col-sm-8">
+            {{ form_errors(edit_form.ePrice) }}
+            {{ form_widget(edit_form.ePrice) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            {{ form_label(edit_form.verification, 'Rodzaj weryfikacji') }}
+        </div>
+         <div class="col-sm-8">
+            {{ form_errors(edit_form.verification) }}
+            {{ form_widget(edit_form.verification) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            {{ form_label(edit_form.validityPeriod, 'Czasokres weryfikacji') }}
+        </div>
+         <div class="col-sm-8">
+            {{ form_errors(edit_form.validityPeriod) }}
+            {{ form_widget(edit_form.validityPeriod) }}
+        </div>
+    </div>
+     <div class="row">
+        <div class="col-sm-4">
+            {{ form_label(edit_form.laboratory, 'Laboratorium zalecane') }}
+        </div>
+         <div class="col-sm-8">
+            {{ form_errors(edit_form.laboratory) }}
+            {{ form_widget(edit_form.laboratory) }}
+        </div>
+    </div>
+</div> 
+
+ <div class="container col-sm-4 hidden-sm-down">
+ 
+ <p>photo</p>
+   </div> 
+
+</div> <!-- "big" row-->
+
+<hr class="featurette-divider">
+
+<div class="container">    
+    <div class="row">
+        <div class="col-xs-4 text-left">
+            <input class="btn btn-primary" type="submit" value="Edytuj"> {{ form_end(edit_form) }}
+        </div>  
+        <div class="col-xs-4">   
+             {{ form_start(delete_form, {'attr': {'onclick': 'return confirm("Na pewno chcesz usunąć wpis?")'}}) }}
+                <input  class="btn btn-danger" type="submit" value="Kasuj">
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+        </div>
+
+        <div class="col-xs-4">
+                <a href="{{ path('etype_index') }} " class="btn btn-success ">Powrót do listy</a>
+        </div>
+    </div>
+</div>
+
+  
 {% endblock %}

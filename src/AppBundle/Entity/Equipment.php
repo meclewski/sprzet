@@ -74,9 +74,9 @@ class Equipment
     private $userId;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="eng_id", type="integer")
+     * Many Equipments have One User.
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="engequipments")
+     * @ORM\JoinColumn(name="eng_id", nullable=false, referencedColumnName="id")
      */
     private $engId;
 

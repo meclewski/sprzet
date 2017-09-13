@@ -17,7 +17,7 @@
     {{ form_start(edit_form) }}
     {{ form_errors(edit_form) }}
  <div class="row">
- <div class="container-fluid col-sm-8">
+ <div class="container-fluid col-sm-8" >
  	<div class="row">
 	 	<div class="col-sm-12">
 	        {{ form_label(edit_form.etype, 'Typ przyrządu') }}
@@ -101,38 +101,33 @@
     <hr class="featurette-divider">
  </div> <!-- container-->   
 
- <div class="container col-sm-4 hidden-sm-down">
- <p>dupa</p>
+ <div class="container col-sm-4 hidden-xs">
+ 
+ <p>photo</p>
    </div> 
 </div> <!-- "big" row-->
-    
 
 
-       
-   <div class="row">
-  		<div class="col-sm-4">
-  			<div>
-    		<input type="submit" value="Edytuj" />
-{{ form_end(edit_form) }}
-   			</div>
-  			
+
+<div class="container">     
+   	<div class="row">
+  		<div class="col-xs-4 text-left">
+    		<input class="btn btn-primary" type="submit" value="Edytuj"> {{ form_end(edit_form) }}	
   		</div>
-  		<div class="col-sm-4">
-  		{{ form_start(delete_form) }}
-  			<div class="pull-right">
-                <input type="submit" value="Kasuj">
-            </div>    
+
+  		<div class="col-xs-4">
+  		
+  			{{ form_start(delete_form,{'attr': {'onclick': 'return confirm("Na pewno chcesz usunąć wpis?")'}}) }}
+                <input  class="btn btn-danger" type="submit" value="Kasuj">
             {{ form_end(delete_form) }}
   		</div>
 
-  		<div class="col-sm-4 ">
-  			<div class="pull-right">
-  				<a href="{{ path('equipment_index') }}">Powrót do listy</a>
-  			</div>
+  		<div class="col-xs-4">
+  				<a href="{{ path('equipment_index') }} " class="btn btn-success">Powrót do listy</a>
   		</div>
 	</div>
 
-			         
+</div>		         
     
             
         

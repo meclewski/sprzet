@@ -25,6 +25,12 @@ class User extends BaseUser
      */
     private $equipments;
 
+     /**
+     * One User has Many Equipments.
+     * @ORM\OneToMany(targetEntity="Equipment", mappedBy="engId")
+     */
+    private $engequipments;
+
     public function setEmail($email)
 {
     $email = is_null($email) ? '' : $email;

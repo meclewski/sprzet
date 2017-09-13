@@ -6,7 +6,7 @@
     <table class="table table-striped table-bordered " id="table" width="100%" cellspacing="0">
         <thead>
             <tr>
-                <th>Id</th>
+                <th style="display:none;">Id</th>
                 <th>Model</th>
                 <th>Czas ważności</th>
                 <th>Cena</th>
@@ -14,13 +14,12 @@
                 <th>Laboratorium</th>
                 <th>Rodzaj weryfikacji</th>
                 <th>Typ</th>
-                <th class="hidden-xs">Actions</th>
-            </tr>
+               
         </thead>
         <tbody>
         {% for etype in etypes %}
             <tr>
-                <td><a href="{{ path('etype_show', { 'id': etype.id }) }}">{{ etype.id }}</a></td>
+                <td style="display:none;">{{ etype.id }}</td>
                 <td>{{ etype.eType }}</td>
                 <td>{{ etype.validityPeriod }}</td>
                 <td>{{ etype.ePrice }}</td>
@@ -28,12 +27,7 @@
                 <td>{{ etype.laboratory }}</td>
                 <td>{{ etype.verification }}</td>
                 <td>{{ etype.emodel }}</td>
-                <td class="hidden-xs">
-                    <div class="btn-group">
-                            <a href="{{ path('etype_edit', { 'id': etype.id }) }}" class="btn-sm btn-primary" role="button">edit</a>
-                            <a href="{{ path('etype_edit', { 'id': etype.id }) }}" class="btn-sm btn-primary" role="button">edit</a>
-                    </div>
-                </td>
+                
             </tr>
         {% endfor %}
         </tbody>
@@ -74,7 +68,25 @@
         }
     } );
 
+    $('#table tbody').on('dblclick', 'tr', function () {
+        var data = t.row( this ).data();
+        var pathToRedirect = '{{ path('etype_edit', {'id': 'ABCDEF'} ) }}'
+        var correctId = data[0];
+        var finalPath = pathToRedirect.replace("ABCDEF", correctId);
+        window.location = finalPath;
+     
 
+
+    } );
+    $('#table tbody').on('contextmenu', 'tr', function (e) {
+        e.preventDefault();
+        var data = t.row( this ).data();
+        var pathToRedirect = '{{ path('etype_show', {'id': 'ABCDEF'} ) }}'
+        var correctId = data[0];
+        var finalPath = pathToRedirect.replace("ABCDEF", correctId);
+        window.location = finalPath;
+
+        } );
 
 } );
   
