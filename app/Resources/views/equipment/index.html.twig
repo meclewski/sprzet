@@ -9,6 +9,9 @@
         <thead>
             <tr>
                 <th>Nr kalibracji</th>
+                <th>Nazwa przyrządu</th>
+                <th>Typ przyrządu</th>
+                
                 <th>Nr inwent.</th>
                 <th>Nr seryjny</th>
                 <th>Data weryfikacji</th>
@@ -26,6 +29,9 @@
         {% for equipment in equipment %}
             <tr>
                 <td>{{ equipment.id }}</td>
+                <td>{{ equipment.etype.emodel }}</td>
+                <td>{{ equipment.etype.eType }}</td>
+                
                 <td>{{ equipment.inventoryNr }}</td>
                 <td>{{ equipment.serialNr }}</td>
                 <td>{% if equipment.verificationDate %}{{ equipment.verificationDate|date('Y-m-d') }}{% endif %}</td>
@@ -62,7 +68,7 @@
   $(document).ready(function() {
           var t =  $('#table').DataTable( {
             "scrollX": true,
-            "order": [[ 0, "desc" ]],
+            "order": [[ 6, "asc" ]],
             "language": {
             "lengthMenu": "Wyświetl _MENU_ rekordów na stronę",
             "zeroRecords": "Przepraszamy nic nie znaleziono",

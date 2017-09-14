@@ -14,7 +14,7 @@
   		</div>
 	</div>
 </div>	
-    {{ form_start(edit_form) }}
+    {{ form_start(edit_form, {'attr': {'id': 'form_equipment_edit'}}) }}
     {{ form_errors(edit_form) }}
  <div class="row">
  <div class="container-fluid col-sm-8" >
@@ -103,7 +103,7 @@
 
  <div class="container col-sm-4 hidden-xs">
  
- <p>photo</p>
+ <p>{{ equipment.etype.validityPeriod }}</p>
    </div> 
 </div> <!-- "big" row-->
 
@@ -112,7 +112,7 @@
    
    	<div class="btn-group">
   		
-    		<input class="btn btn-primary" type="submit" value="Edytuj"> {{ form_end(edit_form) }}	
+    		<input id="btn_edytuj" class="btn btn-primary" type="submit" value="Edytuj"> {{ form_end(edit_form) }}	
   		
   			<a href="{{ path('equipment_index') }} " class="btn btn-success">Powrót do listy</a>
 
@@ -122,11 +122,7 @@
             {{ form_end(delete_form) }}
   		
 	</div>
-
-
-            
-        
-            
+      
     
-   
+
 {% endblock %}
