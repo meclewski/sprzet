@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class EtypeType extends AbstractType
 {
@@ -13,7 +14,7 @@ class EtypeType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('eType')->add('emodel')->add('producer')->add('validityPeriod')->add('ePrice')->add('laboratory')->add('verification');
+        $builder->add('eType')->add('emodel')->add('producer')->add('validityPeriod')->add('ePrice')->add('laboratory')->add('verification')->add('imageFile', VichFileType::class, array());
     }
     
     /**

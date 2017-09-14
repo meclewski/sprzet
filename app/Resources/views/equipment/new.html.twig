@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Equipment creation</h1>
-
+<div class="page-header">
+    <h1>Dodaj nowe urządzenie pomiarowe</h1>
+</div>
    {{ form_start(form) }}
     {{ form_errors(form) }}
  <div class="row">
@@ -95,24 +96,12 @@
    </div> 
 </div> <!-- "big" row-->
 
-<div class="container">     
-    <div class="row">
-        <div class="col-xs-4 text-left">
+<div class="btn-group">  
         
-            <input class="btn btn-primary" type="submit" value="Create" />
+            <input class="btn btn-primary" type="submit" value="Stwórz" />
             {{ form_end(form) }}
-            
-        </div>
-
-        <div class="col-xs-4">
-        
-         
-        </div>
-
-        <div class="col-xs-4">
-                <a href="{{ path('equipment_index') }} " class="btn btn-success">Powrót do listy</a>
-        </div>
-    </div>
+       
+            <a href="{{ path('equipment_index') }} " class="btn btn-success">Powrót do listy</a>
 
 </div>  
 

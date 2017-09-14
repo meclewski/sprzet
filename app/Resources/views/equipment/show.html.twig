@@ -56,22 +56,15 @@
     <hr class="featurette-divider">
     
 
-    <div class="container">     
-    <div class="row">
-        <div class="col-xs-4 text-left">
+    <div class="btn-group">     
+    
+        
             <a href="{{ path('equipment_edit', { 'id': equipment.id }) }} " class="btn btn-primary">Edytuj</a>
             
-        </div>
-
-        <div class="col-xs-4">
         
-         
-        </div>
+            <a href="{{ path('equipment_index') }} " class="btn btn-success">Powrót do listy</a>
+        
 
-        <div class="col-xs-4">
-                <a href="{{ path('equipment_index') }} " class="btn btn-success">Powrót do listy</a>
-        </div>
-    </div>
+</div>
 
-</div>  
 {% endblock %}

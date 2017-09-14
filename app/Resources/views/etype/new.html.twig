@@ -1,16 +1,110 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Etype creation</h1>
+<div class="page-header">
+    <h1>Dodaj nowy typ urządzeń</h1>
+</div>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+     {{ form_start(form) }}
+    {{ form_errors(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('etype_index') }}">Back to the list</a>
-        </li>
-    </ul>
+
+<div class="row">
+ <div class="container-fluid col-sm-8">
+    <div class="row">
+        <div class="col-sm-4">
+            {{ form_label(form.emodel, 'Nazwa przyrządu') }}
+        </div>
+         <div class="col-sm-8">
+            {{ form_errors(form.emodel) }}
+            {{ form_widget(form.emodel) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            {{ form_label(form.producer, 'Producent przyrządu') }}
+        </div>
+         <div class="col-sm-8">
+            {{ form_errors(form.producer) }}
+            {{ form_widget(form.producer) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            {{ form_label(form.eType, 'Typ') }}
+        </div>
+         <div class="col-sm-8">
+            {{ form_errors(form.eType) }}
+            {{ form_widget(form.eType) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            {{ form_label(form.ePrice, 'Cena') }}
+        </div>
+         <div class="col-sm-8">
+            {{ form_errors(form.ePrice) }}
+            {{ form_widget(form.ePrice) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            {{ form_label(form.verification, 'Rodzaj weryfikacji') }}
+        </div>
+         <div class="col-sm-8">
+            {{ form_errors(form.verification) }}
+            {{ form_widget(form.verification) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            {{ form_label(form.validityPeriod, 'Czasokres weryfikacji') }}
+        </div>
+         <div class="col-sm-8">
+            {{ form_errors(form.validityPeriod) }}
+            {{ form_widget(form.validityPeriod) }}
+        </div>
+    </div>
+     <div class="row">
+        <div class="col-sm-4">
+            {{ form_label(form.laboratory, 'Laboratorium zalecane') }}
+        </div>
+         <div class="col-sm-8">
+            {{ form_errors(form.laboratory) }}
+            {{ form_widget(form.laboratory) }}
+        </div>
+    </div>
+</div> 
+
+ <div class="container col-sm-4 hidden-xs">
+ 
+ <div class="row">
+        
+         <div class="col-sm-12">
+            <img class="img-responsive" src="{{ vich_uploader_asset(etype, 'imageFile') }}" alt="{{ etype.imageName }}" />
+         </div>
+ </div> 
+ <div class="row">
+        <div class="col-sm-4">
+            {{ form_label(form.imageFile, 'Wybierz zdjęcie:') }}
+        </div>
+         <div class="col-sm-12">
+            {{ form_errors(form.imageFile) }}
+            {{ form_widget(form.imageFile) }}
+        </div>
+ </div>
+   
+</div> 
+</div> <!-- "big" row-->
+
+<hr class="featurette-divider">
+
+<div class="btn-group">  
+        
+            <input class="btn btn-primary" type="submit" value="Stwórz" />
+            {{ form_end(form) }}
+       
+            <a href="{{ path('etype_index') }} " class="btn btn-success">Powrót do listy</a>
+
+</div>  
 {% endblock %}
