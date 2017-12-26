@@ -105,19 +105,20 @@
 <hr class="featurette-divider">
 
 <div class="btn-group">  
-  
-        
+  <ul class="list-inline">
+        <li>
             <input  class="btn btn-primary" type="submit" value="Edytuj"> {{ form_end(edit_form) }}
-
+        </li>
+        <li>
             <a href="{{ path('etype_index') }} " class="btn btn-success " type="button" >Powrót do listy</a>
-             
-            
+        </li>     
+        <li>    
             {{ form_start(delete_form, {'attr': {'onclick': 'return confirm("Na pewno chcesz usunąć wpis?")'}}) }}
             <input  class="btn btn-danger" type="submit" value="Kasuj">    
             {{ form_end(delete_form) }}
+        </li>
         
-        
-                
+    </ul>            
         
    
 </div>

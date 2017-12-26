@@ -80,7 +80,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        {% if is_granted("ROLE_ADMIN") %}        
+        {% if is_granted("ROLE_USER") %}        
         <li class="treeview">
           <a href="#">
             <i class="fa fa-building-o"></i> <span>Listy</span>
@@ -88,6 +88,7 @@
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
+
           <ul class="treeview-menu">
             <li><a href="{{ path('list_index') }}"><i class="fa fa-circle-o"></i> Moja lista sprzętu</a></li>
             
