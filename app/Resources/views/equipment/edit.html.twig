@@ -104,7 +104,8 @@
 
  <div class="container col-sm-4 hidden-xs">
  
- <p>{{ equipment.etype.validityPeriod }}</p>
+ 
+ <img class="img-responsive" src="{{ vich_uploader_asset(equipment.etype, 'imageFile') }}" alt="{{ equipment.etype.imageName }}" />
    </div> 
 </div> <!-- "big" row-->
 

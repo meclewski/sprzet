@@ -370,3 +370,7 @@ div.FixedHeader_Cloned table {
 	margin: 0 !important
 }
 
+td.highlight {
+        font-weight: bold;
+        color: blue;
+    }

@@ -9,6 +9,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use AppBundle\Form\EtypeType;
+use Symfony\Component\Form\CallbackTransformer;
 
 class EquipmentType extends AbstractType
 {
@@ -39,6 +40,20 @@ class EquipmentType extends AbstractType
               'data-date-format' => 'dd-mm-yyyy']))
         ->add('userId')->add('engId')->add('place')->add('ifUsed')->add('etype');
 
+        /**
+
+        $builder->get('timeToVerification')->addModelTransformer(new CallbackTransformer(
+        function ($value) {
+            if(!$value) {
+                return new \DateTime('now +12 month');
+            }
+            return $value;
+        },
+        function ($value) {
+            return $value;
+        } 
+    ));
+*/
     
     //  $builder->addEventListener(
       //          FormEvents::PRE_SUBMIT,
