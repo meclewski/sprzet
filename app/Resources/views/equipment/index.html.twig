@@ -67,14 +67,15 @@
 <script type="text/javascript">
   $(document).ready(function() {
            var d = new Date(); 
+           var t0 = d.getFullYear() + "-" + d.getMonth()+1 + "-" + d.getDate();
            
            if (d.getMonth() == 11){
                 var t30 = (d.getFullYear()+1) + "-0" + (d.getMonth()-10) + "-" + d.getDate();
                 }
            else{
-                var t30 = d.getFullYear() + "-" + (d.getMonth()+2) + "-" + d.getDate();
+                var t30 = d.getFullYear() + "-0" + (d.getMonth()+2) + "-" + d.getDate();
                 }
-          var t0 = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate();
+          
 
           
           var t =  $('#table').DataTable( {
@@ -83,10 +84,12 @@
 
             if(data[6] < t30){
             $(row).find('td').css('background-color', 'yellow');
-            }
+                
             if(data[6] < t0){
             $(row).find('td').css('background-color', 'red');
+            }    
             }
+            
     
         },
 

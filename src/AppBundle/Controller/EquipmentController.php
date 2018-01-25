@@ -21,7 +21,7 @@ class EquipmentController extends Controller
      * Lists all equipment entities.
      *
      * @Route("/", name="equipment_index")
-     * @Security("has_role('ROLE_ADMIN')")
+     * 
      * @Method("GET")
      */
     public function indexAction()
@@ -38,7 +38,7 @@ class EquipmentController extends Controller
 
     /**
      * Creates a new equipment entity.
-     *
+     *  
      * @Route("/new", name="equipment_new")
      * @Method({"GET", "POST"})
      */
@@ -101,7 +101,7 @@ class EquipmentController extends Controller
             'equipment' => $equipment,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        ));
+    ));
     }
 
     /**
